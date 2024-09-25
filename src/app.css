@@ -4,7 +4,7 @@
 @import url(https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900);
 
 body {
-    background-image: url('./der-marsianer.png');
+    background-image: url('https://cdn.discordapp.com/attachments/1288138220118474888/1288492072667709502/der-marsianer.png?ex=66f56141&is=66f40fc1&hm=2edf6ca1216c133bc59ccc71b51b900a0bbede546de7ad49da4169bfb12f05d7&');
     background-repeat: no-repeat, repeat;
     @apply bg-cover bg-center bg-fixed
 }
