@@ -1,7 +1,7 @@
 <script>
-	export let movies;
+	export let data;
 </script>
 
-{#each movies as item}
-	<h1>{item}</h1>
+{#each data.movies as item}
+	<h1 class="text-text">{item.name}</h1>
 {/each}
