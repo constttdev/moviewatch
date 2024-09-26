@@ -10,9 +10,9 @@
 
 <form action="?/createwatchlist" method="post" use:enhance>
 	<input type="text" name="name" placeholder="Name" />
-	<select name="movies">
+	<select name="movies" multiple>
 		{#each data.movies as item}
-			<option value="item">{item}</option>
+			<option value={item.id}>{item.name}</option>
 		{/each}
 	</select>
 	<button>Create</button>
