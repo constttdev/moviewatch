@@ -9,6 +9,6 @@
 
 <form method="post">
 	<input type="text" name="user" id="" placeholder="user" />
-	<input type="password" name="password" id="" placeholder="password" required />
+	<input type="password" name="password" id="" placeholder="password" required minlength="8" />
 	<button>Register</button>
 </form>

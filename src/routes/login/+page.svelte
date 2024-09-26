@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import { enhance } from '$app/forms';
 
-	export let data, form;
+	export let form;
 </script>
 
-<form method="post">
+<form method="post" use:enhance>
 	<input type="text" name="user" id="" placeholder="user" />
 	<input type="password" name="password" id="" placeholder="password" required />
 	{#if form?.error}

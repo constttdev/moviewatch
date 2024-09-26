@@ -1,24 +1,23 @@
-import type { PageServerLoad } from './$types';
 import type { Actions } from './$types';
-import PocketBase from 'pocketbase';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 
-export const load = (async () => {
-	return {};
-}) satisfies PageServerLoad;
+export const load = ({ locals }) => {
+	if (locals.user) {
+		redirect(307, '/dashboard');
+	}
+};
 
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, locals }) => {
 		const data = await request.formData();
 		const user = data.get('user');
 		const password = data.get('password');
-		const pb = new PocketBase('https://moviewatch.pockethost.io');
 
 		if (!user || !password) {
 			return fail(400, { error: 'Username or password is missing' });
 		}
 		try {
-			await pb.collection('users').authWithPassword(user.toString(), password.toString());
+			await locals.pb.collection('users').authWithPassword(user.toString(), password.toString());
 			console.log(`${user} logged in`);
 		} catch (e) {
 			if (e) {
